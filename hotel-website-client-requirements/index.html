@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hotel Website Client Requirements & Project Activation Form | Kingsoft Online Solutions</title>
+<meta name="description" content="Professional hotel website client requirements and project activation form by Kingsoft Online Solutions.">
+<style>
+html,body{margin:0;min-height:100%;background:#edf1ee;font-family:Arial,Helvetica,sans-serif}.loading{min-height:100vh;display:grid;place-items:center;padding:24px;text-align:center;color:#0a0d0b}.loading b{display:block;font-size:22px;margin-bottom:8px}.loading span{color:#667068}
+</style>
+</head>
+<body>
+<div class="loading" id="loading"><div><b>Hotel Website Client Requirements &amp; Project Activation Form</b><span>Loading the secure Kingsoft form…</span></div></div>
+<script>
+fetch('https://raw.githubusercontent.com/Samula-digital/Samula-digital/main/hotel-website-intake-gmail/index.html')
+.then(function(response){if(!response.ok)throw new Error('Unable to load form');return response.text();})
+.then(function(html){
+html=html.replaceAll('Hotel Website Project Start Form','Hotel Website Client Requirements & Project Activation Form');
+html=html.replace('New Hotel Website Project Start Form Submission','New Hotel Website Client Requirements & Project Activation Form Submission');
+html=html.replace('kingsoftHotelIntakeV1','kingsoftHotelClientRequirementsV1');
+document.open();document.write(html);document.close();
+})
+.catch(function(){document.getElementById('loading').innerHTML='<div><b>Form temporarily unavailable</b><span>Please contact Kingsoft Online Solutions on 0792243309.</span></div>';});
+</script>
+</body>
+</html>
