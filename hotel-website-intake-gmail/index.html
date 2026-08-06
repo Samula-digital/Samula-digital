@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Loading Hotel Website Project Start Form</title>
+<style>
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0a0d0b;color:#fff;font:16px Arial,sans-serif;text-align:center}.loader{width:min(420px,90%)}.ring{width:54px;height:54px;margin:0 auto 18px;border:7px solid #394039;border-top-color:#c7ff00;border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}b{color:#c7ff00}button{background:#c7ff00;border:0;border-radius:9px;padding:11px 15px;font-weight:800;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="loader" id="status"><div class="ring"></div><b>KINGSOFT ONLINE SOLUTIONS</b><p>Loading the hotel website project form…</p></div>
+<script>
+fetch('../hotel-website-intake/index.html?v=20260806')
+  .then(response => {
+    if (!response.ok) throw new Error('Unable to load the form.');
+    return response.text();
+  })
+  .then(html => {
+    html = html.replace(
+      'https://formsubmit.co/contact@kingsoftonline.com',
+      'https://formsubmit.co/kingsoftonlinesolutions@gmail.com'
+    );
+    document.open();
+    document.write(html);
+    document.close();
+  })
+  .catch(() => {
+    document.getElementById('status').innerHTML = '<b>FORM COULD NOT LOAD</b><p>Please refresh the page or contact Kingsoft Online Solutions.</p><button onclick="location.reload()">Refresh</button>';
+  });
+</script>
+</body>
+</html>
