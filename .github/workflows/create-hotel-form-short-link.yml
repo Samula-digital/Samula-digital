@@ -1,0 +1,43 @@
+name: Create hotel form short link
+
+on:
+  push:
+    paths:
+      - '.github/workflows/create-hotel-form-short-link.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  create-short-link:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Create short URL
+        shell: bash
+        run: |
+          set -euo pipefail
+          TARGET='https://rawcdn.githack.com/Samula-digital/Samula-digital/f858cd8e66001cc488e32bfc6c62c6a7031ae246/hotel-form/index.html'
+          for SLUG in KingsoftHotelForm KOSHotelForm2026 KingsoftHotelWeb; do
+            RESPONSE=$(curl -fsS --get 'https://is.gd/create.php' \
+              --data-urlencode 'format=simple' \
+              --data-urlencode "url=${TARGET}" \
+              --data-urlencode "shorturl=${SLUG}" || true)
+            if [[ "$RESPONSE" == https://is.gd/* ]]; then
+              printf '%s\n' "$RESPONSE" > hotel-form/short-url.txt
+              break
+            fi
+          done
+          test -s hotel-form/short-url.txt
+
+      - name: Save short URL
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hotel-form/short-url.txt
+          git commit -m 'Save hotel form short URL [skip ci]'
+          git push
