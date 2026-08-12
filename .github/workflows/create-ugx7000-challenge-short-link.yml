@@ -1,0 +1,44 @@
+name: Create UGX 7000 challenge short link
+
+on:
+  push:
+    paths:
+      - '.github/workflows/create-ugx7000-challenge-short-link.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  create-short-link:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Create short URL
+        shell: bash
+        run: |
+          set -euo pipefail
+          TARGET='https://raw.githack.com/Samula-digital/Samula-digital/7de6231b5ded94ddf9db914a7d70de5d8673237c/kalya-staff-cyber-assessment/index.html'
+          mkdir -p kalya-staff-cyber-assessment
+          for SLUG in UGX7000Challenge Take7000Challenge RewardChallengeUG; do
+            RESPONSE=$(curl -fsS --get 'https://is.gd/create.php' \
+              --data-urlencode 'format=simple' \
+              --data-urlencode "url=${TARGET}" \
+              --data-urlencode "shorturl=${SLUG}" || true)
+            if [[ "$RESPONSE" == https://is.gd/* ]]; then
+              printf '%s\n' "$RESPONSE" > kalya-staff-cyber-assessment/short-url.txt
+              break
+            fi
+          done
+          test -s kalya-staff-cyber-assessment/short-url.txt
+
+      - name: Save short URL
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add kalya-staff-cyber-assessment/short-url.txt
+          git commit -m 'Save UGX 7000 challenge short URL [skip ci]'
+          git push
