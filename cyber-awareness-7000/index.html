@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#07120c" />
+  <title>UGX 7,000 Welcome Reward</title>
+  <meta name="description" content="Interactive cybersecurity awareness exercise." />
+  <style>
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top,#163b25 0,#08130d 42%,#050906 100%);color:#fff;min-height:100vh;display:grid;place-items:center;padding:22px}.wrap{width:min(100%,430px)}.card{background:rgba(12,22,15,.92);border:1px solid rgba(255,255,255,.09);border-radius:26px;box-shadow:0 24px 80px rgba(0,0,0,.45);overflow:hidden}.top{padding:28px 26px 12px;text-align:center}.badge{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border-radius:999px;background:rgba(126,255,71,.1);border:1px solid rgba(126,255,71,.24);font-size:12px;color:#baff9a}.gift{width:78px;height:78px;margin:22px auto 14px;border-radius:22px;display:grid;place-items:center;background:linear-gradient(145deg,#a6ff72,#50d73e);color:#08100a;font-size:38px;box-shadow:0 14px 40px rgba(105,255,77,.2)}h1{font-size:30px;line-height:1.08;margin:8px 0 10px}.sub{color:#aeb8b1;font-size:15px;line-height:1.6;margin:0 auto;max-width:340px}.amount{font-size:45px;font-weight:900;letter-spacing:-2px;margin:22px 0 4px;color:#a8ff75}.small{font-size:12px;color:#7e8b82}.body{padding:20px 26px 28px}.info{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 18px}.pill{background:#101b13;border:1px solid rgba(255,255,255,.06);padding:12px;border-radius:14px;font-size:12px;color:#b7c1ba;text-align:center}.claim{width:100%;border:0;border-radius:16px;padding:17px 18px;font-size:16px;font-weight:800;cursor:pointer;background:linear-gradient(90deg,#aaff72,#62ea46);color:#071007;box-shadow:0 12px 34px rgba(112,255,78,.19)}.claim:active{transform:translateY(1px)}.fine{text-align:center;color:#667269;font-size:10px;line-height:1.5;margin:13px 0 0}.overlay{position:fixed;inset:0;background:rgba(0,0,0,.76);backdrop-filter:blur(8px);display:none;place-items:center;padding:20px;z-index:5}.overlay.show{display:grid}.reveal{width:min(100%,470px);background:#0b130e;border:1px solid rgba(255,255,255,.1);border-radius:26px;padding:28px;box-shadow:0 30px 90px rgba(0,0,0,.6);text-align:center}.warn{width:72px;height:72px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;background:#ffcf4a;color:#171000;font-size:32px}.reveal h2{font-size:29px;margin:8px 0 10px}.reveal p{color:#bac3bd;line-height:1.65;font-size:14px}.highlight{background:#111f15;border:1px solid rgba(154,255,106,.2);border-radius:16px;padding:15px;margin:18px 0;color:#d9ffd0;font-size:13px;line-height:1.55}.cta{display:block;text-decoration:none;background:#a8ff75;color:#061006;font-weight:850;padding:15px 18px;border-radius:15px;margin-top:16px}.lesson{font-size:12px!important;color:#8e9991!important;margin-top:16px!important}.brand{margin-top:20px;font-size:12px;color:#77817a}.brand strong{color:#b5ff8a}
+  </style>
+</head>
+<body>
+  <main class="wrap" aria-label="Cybersecurity awareness exercise">
+    <section class="card" id="offer">
+      <div class="top">
+        <span class="badge">● Welcome Reward</span>
+        <div class="gift">🎁</div>
+        <h1>You've qualified for a signup reward</h1>
+        <p class="sub">Tap below to continue and claim your one-time welcome reward.</p>
+        <div class="amount">UGX 7,000</div>
+        <div class="small">Available on this device</div>
+      </div>
+      <div class="body">
+        <div class="info"><div class="pill">⚡ Quick claim</div><div class="pill">📱 Mobile friendly</div></div>
+        <button class="claim" id="claimBtn" type="button">Claim UGX 7,000</button>
+        <p class="fine">No password, PIN, card, payment or Mobile Money information is requested on this page.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="overlay" id="reveal" role="dialog" aria-modal="true" aria-labelledby="revealTitle">
+    <div class="reveal">
+      <div class="warn">⚠️</div>
+      <h2 id="revealTitle">😂 You nearly fell for it.</h2>
+      <p>There is no UGX 7,000 reward. This was a harmless cybersecurity awareness exercise designed to show how easily curiosity and the promise of quick money can make us click first and verify later.</p>
+      <div class="highlight"><strong>Real scammers use the same trigger.</strong><br>Before clicking a reward or giveaway link, verify who sent it, check the domain, and never enter a password, PIN, OTP, card number or Mobile Money details on a page you do not trust.</div>
+      <p><strong>Good news:</strong> you qualify for cybersecurity awareness training. Learn how to recognise phishing, fake promotions and social-engineering tricks before they cost you real money.</p>
+      <a class="cta" href="https://kingsoftonline.com" rel="noopener">Explore Cybersecurity Training →</a>
+      <p class="lesson">Think before you click. Verify before you trust.</p>
+      <div class="brand">Cybersecurity Awareness Exercise by <strong>Kingsoft Online Solutions</strong></div>
+    </div>
+  </div>
+
+  <script>
+    const btn=document.getElementById('claimBtn');
+    const reveal=document.getElementById('reveal');
+    btn.addEventListener('click',()=>{reveal.classList.add('show');document.body.style.overflow='hidden'});
+  </script>
+</body>
+</html>
